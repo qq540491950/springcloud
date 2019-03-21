@@ -1,0 +1,19 @@
+server:
+  port: 8101
+
+spring:
+  application:
+    name: server8101
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka
+    registerWithEureka: true
+    fetchRegistry: true
+  # 心跳检测与续约时间，测试时将值设置小一点，保证服务关闭后注册中心能将服务及时踢出
+  instance:
+    # 客户端发送时间间隔
+    lease-renewal-interval-in-seconds: 1
+    # 服务端接收到最后一次心跳等待时间
+    lease-expiration-duration-in-seconds: 2
